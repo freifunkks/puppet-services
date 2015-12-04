@@ -1,0 +1,18 @@
+#server {
+#	listen 443 ssl;
+#	server_name stats.freifunk-kassel.de;
+#
+#	include ssl.conf;
+#	ssl_certificate         /etc/letsencrypt/live/stats.freifunk-kassel.de/cert.pem;
+#	ssl_certificate_key     /etc/letsencrypt/live/stats.freifunk-kassel.de/privkey.pem;
+#	ssl_trusted_certificate /etc/letsencrypt/live/stats.freifunk-kassel.de/fullchain.pem;
+#
+#	include config-bits/stats.ffks;
+#}
+
+server {
+	listen 80;
+	server_name stats.freifunk-kassel.de stats.ffks.de;
+
+	rewrite ^ https://stats.freifunk-kassel.de$request_uri? permanent;
+}

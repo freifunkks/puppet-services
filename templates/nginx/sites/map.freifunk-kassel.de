@@ -1,0 +1,18 @@
+#server {
+#	listen 443 ssl;
+#	server_name map.freifunk-kassel.de;
+#
+#	include ssl.conf;
+#	ssl_certificate         /etc/letsencrypt/live/map.freifunk-kassel.de/cert.pem;
+#	ssl_certificate_key     /etc/letsencrypt/live/map.freifunk-kassel.de/privkey.pem;
+#	ssl_trusted_certificate /etc/letsencrypt/live/map.freifunk-kassel.de/fullchain.pem;
+#
+#	include config-bits/map.ffks;
+#}
+
+server {
+	listen 80;
+	server_name map.freifunk-kassel.de;
+
+	rewrite ^ https://map.freifunk-kassel.de$request_uri? permanent;
+}

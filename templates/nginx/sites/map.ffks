@@ -1,0 +1,16 @@
+#server {
+#	listen 443 ssl;
+#	server_name map.ffks;
+#
+#	include ssl.conf;
+#	# TODO: SSL
+#
+#	include config-bits/map.ffks;
+#}
+
+server {
+	listen 80;
+	server_name map.ffks;
+
+	include config-bits/map.ffks;
+}

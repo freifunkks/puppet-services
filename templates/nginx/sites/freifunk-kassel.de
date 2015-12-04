@@ -1,0 +1,25 @@
+#server {
+#	listen 443 ssl;
+#	server_name freifunk-kassel.de;
+#
+#	include ssl.conf;
+#	ssl_certificate         /etc/letsencrypt/live/freifunk-kassel.de/cert.pem;
+#	ssl_certificate_key     /etc/letsencrypt/live/freifunk-kassel.de/privkey.pem;
+#	ssl_trusted_certificate /etc/letsencrypt/live/freifunk-kassel.de/fullchain.pem;
+#
+#	include config-bits/home.ffks;
+#}
+
+server {
+	listen 443;
+	server_name www.freifunk-kassel.de;
+
+	rewrite ^ https://freifunk-kassel.de$request_uri? permanent;
+}
+
+server {
+	listen 80;
+	server_name freifunk-kassel.de www.freifunk-kassel.de;
+
+	rewrite ^ https://freifunk-kassel.de$request_uri? permanent;
+}

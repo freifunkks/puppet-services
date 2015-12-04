@@ -1,0 +1,16 @@
+#server {
+#	listen 443 ssl;
+#	server_name dl.ffks;
+#
+#	include ssl.conf;
+#	# TODO: SSL
+#
+#	include config-bits/dl.ffks;
+#}
+
+server {
+	listen 80;
+	server_name dl.ffks;
+
+	include config-bits/dl.ffks;
+}

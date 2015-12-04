@@ -1,0 +1,4 @@
+root /var/www/home.ffks;
+index index.html index.htm;
+
+# TODO: FastCGI
